@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.UserConfigDao">
+ 
+ 	<select id="getUserList" resultType="java.util.Map">
+ 		select * from tb_userinfo
+ 	</select>
+ 	
+ 	<insert id="addUser" parameterType="com.dou.domain.Userinfo">
+ 		insert into tb_userinfo values(#{userId},#{name},#{ldnumber},#{password},#{phone},
+ 			#{machinecde},#{code},#{addr},#{picture}
+ 		)
+ 	</insert>
+ 	
+ 	<delete id="deleteUser" parameterType="com.dou.domain.Userinfo">
+ 	delete from tb_userinfo where userId = #{userId}
+ 	
+ 	</delete>
+ 	
+ 	<update id="updatePolicyNonCarDOBatch" parameterType="java.util.List">
+ 		update tb_userinfo set name=#{name},ldnumber = #{ldnumber},password = #{password},phone=#{phone},machinecde=#{machinecde},code=#{code},addr=#{addr},picture = #{picture}
+ 		where user_id=#{user_id}
+ 	</update>
+
+</mapper>
